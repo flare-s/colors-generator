@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colour Palette Creator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <main>
+        <div class="container vertical-gutter">
+            <h1>Color Palette Generator</h1>
+            <p>Press <button class="btn colors__generator">space</button> to generate a new Palette.</p>
+            <ul class="colors-list">
+                <li class="color">
+                    <button class="color__lock btn" aria-label="lock this color">
+                        <img src="icons/unlocked.svg" width="28" alt="unlocked padlock">
+                    </button>
+                    <label for="color__value--1" class="color__value">
+                        <span class="btn">#cf125d</span>
+                        <input class="sr-only color__hex" type="color" id="color__value--1" value="#cf125d">
+                    </label>
+                    
+                    <button class="color__copy btn">Copy</button>
+                </li>
+                <li class="color">
+                    <button class="color__lock btn" aria-label="lock this color">
+                        <img src="icons/unlocked.svg" width="28" alt="unlocked padlock">
+                    </button>
+                    <label for="color__value--2" class="color__value">
+                        <span class="btn">#cf125d</span>
+                        <input class="sr-only color__hex" type="color" id="color__value--2" value="#cf125d">
+                    </label>
+                    
+                    <button class="color__copy btn">Copy</button>
+                </li>
+                <li class="color">
+                    <button class="color__lock btn" aria-label="lock this color">
+                        <img src="icons/unlocked.svg" width="28" alt="unlocked padlock">
+                    </button>
+                    <label for="color__value--3" class="color__value">
+                        <span class="btn">#cf125d</span>
+                        <input class="sr-only color__hex" type="color" id="color__value--3" value="#cf125d">
+                    </label>
+                    
+                    <button class="color__copy btn">Copy</button>
+                </li>
+                <li class="color">
+                    <button class="color__lock btn" aria-label="lock this color">
+                        <img src="icons/unlocked.svg" width="28" alt="unlocked padlock">
+                    </button>
+                    <label for="color__value--4" class="color__value">
+                        <span class="btn">#cf125d</span>
+                        <input class="sr-only color__hex" type="color" id="color__value--4" value="#cf125d">
+                    </label>
+                    
+                    <button class="color__copy btn">Copy</button>
+                </li>
+            </ul>
+        </div>
+    </main>
+    
+</body>
+</html>
