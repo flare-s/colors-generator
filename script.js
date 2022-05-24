@@ -1,31 +1,48 @@
 class Color{
     constructor(element, hex) {
         this.element = element;
-        this.hex = hex;
-        this.locked = false;
+        this._hex = hex;
+        this._locked = false;
     }
 
 
-    // setting the color to the element
-    setHex(hex) {
-        this.hex = hex;
-        this.element.style.backgroundColor = hex;
-        this.element.querySelector(".color__value span").textContent = hex.toUpperCase();
-        this.element.querySelector(".color__hex").value = hex;
+    get hex() {
+        return this._hex;
+    }
+    // set the hex property
+    set hex(newHex) {
+        this._hex = newHex;
     }
 
-    // change the state of locked
-    setLocked(locked) {
-        this.locked = locked;
-        if (locked) {
-            this.element.querySelector('.color__lock').setAttribute("aria-label", "lock this color");
+    get locked() {
+        return this._locked;
+    }
+
+    // set the locked property
+    set locked(lockedState) {
+        this._locked = lockedState;
+    }
+
+    // change the color and value of elements
+    changeColor() {
+        this.element.style.backgroundColor = this.hex;
+        this.element.querySelector(".color__value span").textContent = this.hex.toUpperCase();
+        this.element.querySelector(".color__hex").value = this.hex;
+    }
+
+
+    // lock the color depending on the value of the locked property
+    changeLock() {
+        if (this.locked) {
+            this.element.querySelector('.color__lock').setAttribute("aria-label", "unlock this color");
             this.element.querySelector(".color__lock img").setAttribute('src', 'icons/locked.svg');
         } else {
-            this.element.querySelector('.color__lock').setAttribute("aria-label", "unlock this color");
+            this.element.querySelector('.color__lock').setAttribute("aria-label", "lock this color");
             this.element.querySelector(".color__lock img").setAttribute('src', 'icons/unlocked.svg');
         }
     }
 
+    // generate a random color
     generateHex() {
         // if this element locked don't change color
         if (this.locked) {
@@ -41,7 +58,8 @@ class Color{
         }
 
         // set the random color to the element
-        this.setHex(newHex);
+        this.hex = newHex;
+        this.changeColor();
 
 
 
@@ -60,7 +78,7 @@ function copyToClipboard(text) {
  }
 
 
-const colorsArray = Array.from(document.querySelectorAll(".color"));
+const colorsArray = document.querySelectorAll(".color");
 const colors = [];
 const generateButton = document.querySelector(".colors__generator");
 
@@ -109,7 +127,8 @@ colors.forEach(color => {
 
         // seeting the lock state from the lock button
         if (e.target.classList.contains("color__lock")) {
-            color.setLocked(!color.locked);
+            color.locked = !color.locked;
+            color.changeLock();
             e.target.blur();
         }
 
