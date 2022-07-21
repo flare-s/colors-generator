@@ -1,2 +1,2 @@
 # colors-generator
-Generate random color palettet
+Generate random color palette
